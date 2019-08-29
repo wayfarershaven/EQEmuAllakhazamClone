@@ -132,22 +132,6 @@ $npc_data = '
                 </td>
                 <td>' . return_npc_primary_faction($npc['npc_faction_id']) . '</td>
             </tr>
-            <tr>
-                <td style="text-align:right"><b>Health points</b>
-                </td>
-                <td>' . number_format($npc["hp"]) . '</td>
-            </tr>
-            <tr>
-                <td style="text-align:right"><b>Damage</b>
-                </td>
-                <td>' . $npc["mindmg"] . " to " . $npc["maxdmg"] . '</td>
-            </tr>
-            ' . $npc_attack_speed . '
-            <tr>
-                <td style="text-align:right"><b>Special attacks</b>
-                </td>
-                <td>' . SpecialAttacks($npc["npcspecialattks"]) . '</td>
-            </tr>
         </tbody>
     </table>
 
@@ -385,7 +369,7 @@ $result = db_mysql_query($query) or message_die('npc.php', 'MYSQL_QUERY', $query
 if (mysqli_num_rows($result) > 0) {
     $print_buffer .= "<h2 class='section_header'>Killing this NPC lowers factions with</h2><ul>";
     while ($row = mysqli_fetch_array($result)) {
-        $print_buffer .= "<li><a href=faction.php?id=" . $row["id"] . ">" . $row["name"] . "</a> (" . $row["value"] . ")";
+        $print_buffer .= "<li><a href=?a=faction&id=" . $row["id"] . ">" . $row["name"] . "</a> (" . $row["value"] . ")";
     }
 }
 $print_buffer .= "</ul>";
@@ -410,7 +394,7 @@ if (mysqli_num_rows($result) > 0) {
         <h2 class='section_header'>Killing this NPC raises factions with</h2>
         <ul>";
     while ($row = mysqli_fetch_array($result)) {
-        $print_buffer .= "<li><a href=faction.php?id=" . $row["id"] . ">" . $row["name"] . "</a> (" . $row["value"] . ")";
+        $print_buffer .= "<li><a href=?a=faction&id=" . $row["id"] . ">" . $row["name"] . "</a> (" . $row["value"] . ")";
     }
 }
 $print_buffer .= "</ul>";

@@ -33,8 +33,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EQEmulator Allakhazam</title>
-    <link rel="icon" href="http://everquest.allakhazam.com/favicon.ico">
+    <title>Haven Allakhazam</title>
     <link rel="stylesheet" type="text/css" href="includes/alla.css">
     <link rel="stylesheet" type="text/css" href="./zam_files/global.css">
     <link rel="stylesheet" type="text/css" href="./zam_files/site.css" id="css">
@@ -63,7 +62,6 @@
     <div id="skin-wrap"></div>
     <div id="header">
         <div id="logo" style="background: url(images/logos/eqemu.png) 0 10px no-repeat;">
-            <a href="#" style="background: url(images/logos/logo.png) right no-repeat;top:10px"></a>
             <?php
                 if($site_logo)
                     echo '<img src="' . $site_logo . '" style="width: 200px;height:auto;position: absolute;left: 340px;z-index: 900;bottom: 10px;">';
@@ -80,7 +78,7 @@
                 <li class="has-sub first-child  nc-home"><a href="?">Home</a>
                     <div><em></em><var></var><strong></strong>
                         <ul>
-                            <li class="first-child  nc-news-archives"><a href="http://eqemulator.org">EQEmulator</a> </li>
+                            <li class="first-child  nc-news-archives"><a href="https://wayfarershaven.com/">Haven Forums</a> </li>
                             <li class="last-child  nc-zam-tools"><a href="http://everquest.allakhazam.com/"><span class="icon-tools">Official Allakhazam</span></a>
                             </li>
                         </ul>
@@ -113,7 +111,7 @@
                                             </tr>
                                             <tr>
                                                 <td  class="menu_item">
-                                                    <li><a href="http://www.eqemulator.org">EQEmulator</a>
+                                                    <li><a href="https://wayfarershaven.com/">Haven Forums</a>
                                                     </li>
                                                 </td>
                                             </tr>
@@ -164,12 +162,6 @@
                                                 <td  class="menu_item">
                                                     <li><a href="?a=advanced_npcs">Advanced NPC
                                                             Search</a>
-                                                    </li>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td  class="menu_item">
-                                                    <li><a href="?a=pets">Pets</a>
                                                     </li>
                                                 </td>
                                             </tr>
