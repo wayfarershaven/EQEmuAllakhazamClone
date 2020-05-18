@@ -55,7 +55,7 @@ if($_GET['get_data']){
         echo '</ul>';
     }
     if($_GET['fetch_type'] == "global_mobs"){
-        $query = "SELECT * FROM `npc_types` WHERE `name` LIKE '%" . str_replace(' ', '_', $name) . "%' ORDER BY `name`";
+        $query = "SELECT * FROM `npc_types` WHERE `id` = '" . $name . "' OR `name` LIKE '%" . str_replace(' ', '_', $name) . "%' ORDER BY `name`";
         $result = db_mysql_query($query);
         echo '<ul>';
         while ($row = mysqli_fetch_array($result)) {
@@ -64,7 +64,7 @@ if($_GET['get_data']){
         echo '</ul>';
     }
     if($_GET['fetch_type'] == "global_items") {
-        $query = "SELECT * FROM `items` WHERE `name` LIKE '%" . $name . "%' ORDER BY `name`";
+        $query = "SELECT * FROM `items` WHERE `reqlevel` < '75' AND (`Name` LIKE '%" . $name . "%' OR `id` = '" . $name . "')";
         $result = db_mysql_query($query);
         echo '<ul>';
         while ($row = mysqli_fetch_array($result)) {
@@ -80,8 +80,8 @@ $tab_title = "";
 
 $global_search_count = array(
     "zones" => array("Zones", "SELECT COUNT(*) as found_count FROM `zone` WHERE `short_name` LIKE '%" . $name . "%' OR `long_name` LIKE '%" . $name . "%'"),
-    "mobs" => array("Mobs", "SELECT COUNT(*) as found_count FROM `npc_types` WHERE `name` LIKE '%" . str_replace(' ', '_', $name) . "%'"),
-    "items" => array("Items", "SELECT COUNT(*) as found_count FROM `items` WHERE `Name` LIKE '%" . $name . "%'"),
+    "mobs" => array("Mobs", "SELECT COUNT(*) as found_count FROM `npc_types` WHERE `id` = '" . $name . "' OR `name` LIKE '%" . str_replace(' ', '_', $name) . "%'"),
+    "items" => array("Items", "SELECT COUNT(*) as found_count FROM `items` WHERE `reqlevel` < '75' AND (`Name` LIKE '%" . $name . "%' OR `id` = '" . $name . "') "),
     "spells" => array("Spells", "SELECT COUNT(*) as found_count FROM `spells_new` WHERE `name` LIKE '%" . $name . "%'"),
     "factions" => array("Factions", "SELECT COUNT(*) as found_count FROM `faction_list` WHERE `name` LIKE '%" . $name . "%'"),
     "tradeskills" => array("Trade Skills", "SELECT COUNT(*) as found_count FROM `tradeskill_recipe`  WHERE `name` LIKE '%" . $name . "%'"),
